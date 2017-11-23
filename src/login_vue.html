@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head> @include('./header.html', { "title": "vue版本登录页" }) </head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="margin">
+                <div class="logo">
+                    <img src="./dist/img/login_02.jpg" alt="">
+                    <div class="name_one">甘肃政务服务网</div>
+                    <div class="url">&nbsp;www.gszwfw.gov.cn</div>
+                </div>
+                <div class="rule">
+                    <img src="./dist/img/login_01.jpg" alt="">
+                </div>
+                <div class="name_two">政府服务内部门户</div>
+            </div>
+        </header>
+        <div class="center">
+            <div class="col-offset-17 submit">
+                <form action="">
+                    <img src="./dist/img/login_15.jpg" alt="" class="enter">
+                    <input type="text"><br>
+                    <hr>
+                    <img src="./dist/img/login_14.jpg" alt="" class="enter">
+                    <input type="password"><br>
+                    <hr>
+                    <button>登录</button>
+                    <br>
+                    <div class="form_footer">
+                        <label class="rem" @click="remember">
+                            <img src="./dist/img/login_13.jpg" alt="" class="remember">
+                            <input type="checkbox" class="checkbox " v-model="checkbox">记住密码
+                        </label>
+                        &nbsp;<a href="" class="forgotPwd">忘记密码</a>
+                        &nbsp;<a href="" class="register">注册</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer>
+            <address>京ICP备05004897号&nbsp;&nbsp;京公网安备11041400161号</address>
+        </footer>
+    </div>
+    
+    <script src="dist/js/lib/jquery/jquery-1.11.3.min.js"></script>
+    <script src="dist/js/lib/vue/vue.min.js"></script>
+    <script>
+        document.getElementsByClassName('wrap')[0].style.height = $(window).height() + "px";
+        
+        var vm = new Vue({
+            el:'.wrap',
+            data:{
+                checkbox:false
+            },
+            methods:{
+                remember:function(){
+                    //选中状态 
+                    if (this.checkbox == true) {
+                        $('.remember').attr("src","./dist/img/login_13.jpg");
+                    }else{
+                        //未选中状态
+                        $('.remember').attr("src","./dist/img/login_16.jpg");
+                    }
+                    
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

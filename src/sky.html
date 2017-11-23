@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head> @include('./header.html', { "title": "绘制白云" }) </head>
+<body>
+    <script src="dist/js/lib/jquery/jquery-1.11.3.min.js"></script>
+    <div>
+        <!--绘制白云  -->
+        <canvas class="sky"></canvas>
+        <script>
+            //获取画布对象
+            var sky = document.getElementsByClassName("sky")[0];
+            //获取2d上下文对象
+            var context = sky.getContext("2d");
+            //设置样式
+            context.strokeStyle = "#36abf8";
+            context.fillStyle = "#36abf8";
+            context.lineWidth = 3;
+            // 绘制圆
+            context.beginPath();
+            //圆心坐标x,y,半径,开始弧度，结束弧度，是否逆时针绘制
+            // Math.PI  = 180
+            // 0   =   0
+            // Math.PI*2  =360
+            context.arc(30,120,30,Math.PI/2,-Math.PI*0.5,false);
+            // 开始绘制
+            // 轮廓
+            context.arc(70,90,40,Math.PI,-Math.PI*0.2,false);
+            context.arc(180,120,100,Math.PI,-Math.PI*0.1,false);
+            context.arc(270,120,30,-Math.PI*0.5,Math.PI/2,false);
+            context.closePath();
+            context.fill();
+            context.stroke();
+            context.clip();
+        </script>
+    </div>
+</body>
+</html>
